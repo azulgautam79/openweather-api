@@ -46,7 +46,15 @@ type weatherResponse struct {
 }
 
 func hello(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("Hello from go!\n"))
+	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+
+	response := map[string]string{
+		"message":  "Welcome to the Go Weather API",
+		"endpoint": "https://openweather-api-iota.vercel.app/weather/{city}",
+		"example":  "https://openweather-api-iota.vercel.app/weather/kathmandu",
+	}
+
+	json.NewEncoder(w).Encode(response)
 }
 
 func query(city string) (weatherResponse, error) {
