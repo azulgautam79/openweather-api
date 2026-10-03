@@ -1,0 +1,14 @@
+# Secrets
+.apiConfig
+.env
+.env.*
+
+# Go binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Build output
+/bin/
